@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://java.sun.com/xml/ns/javaee" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd 
+http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee" id="WebApp_ID" version="2.5">
+  <display-name>JspServeltDemo</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+ 
+ <context-param>
+ 	<param-name>dbUrl</param-name>
+ 	<param-value>mysql</param-value>
+ </context-param>
+ <listener>
+ 	<listener-class>
+ 		net.sam.context.ContextListener
+ 	</listener-class>
+ </listener>
+ 
+  <servlet>
+    
+    <display-name>SamHomePage</display-name>
+    <servlet-name>SamHomePage</servlet-name>
+    <servlet-class>net.sam.landing.SamHomePage</servlet-class>
+  </servlet>
+  <servlet>
+  	
+  	<display-name>Campaigns</display-name>
+  	<servlet-name>Campaigns</servlet-name>
+  	<servlet-class>net.sam.landing.Campaigns</servlet-class>
+  <!-- 	<load-on-startup>1</load-on-startup> -->
+  	<init-param>
+  		<param-name>driverClass</param-name>
+  		<param-value>MSql-Driver</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SamHomePage</servlet-name>
+    <url-pattern>/SamHomePage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Campaigns</servlet-name>
+  	<url-pattern>/Campaigns</url-pattern>
+  </servlet-mapping>
+  
+  <!-- <error-page>
+  	<error-code>403</error-code>
+  	<location>/generic/security.html</location>
+  </error-page>
+  
+  <error-page>
+  	<exception-type>java.sql.SQLException</exception-type>
+  	<location>/generic/sqlerror.html</location>
+  
+  </error-page> --> 
+</web-app>
